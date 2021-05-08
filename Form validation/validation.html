@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Login </title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     
+    <!-- Jquery -->
+    <script src="jquery-3.5.0.min.js"></script>
+</head>
+ 
+  <body>
+      <div class="container-fluid">
+       <form action="#" class="form-group col-lg-4 col-md-4 ">
+
+        <label for="username" class="mt-3">Username:</label>
+        <input type="text" class="form-control" id="username" autocomplete="off" name="username">
+        <div id="showerror"> </div>
+        
+        <label for="pswd" class="mt-3">Password:</label>
+        <input type="password" class="form-control" id="pass" autocomplete="off" name="password">
+        <div id="showerrorpswd"> </div>
+        
+        <label for="pswd2" class="mt-3">Re-Enter Password:</label>
+        <input type="password" class="form-control" id="pass2" autocomplete="off" name="password">
+        <div id="showerrorpswd2"> </div>
+       
+        <label class="m-2">
+            <input type="checkbox" name="" id="" autocomplete="off">Remember Me?
+        </label>
+        
+        <div>
+        <button type="submit" class="btn btn-outline-secondary" id="submit">Submit</button>
+       </form>
+       </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+          $('#submit').click(function(){
+          var user=$('#username').val();
+
+          if(user=='')
+          { $('#showerror').html('**The username must be filled');
+            return false;
+          } 
+          if((user.length<=2) || (user.length>=25))
+          { $('#showerror').html('**The username must be between 3 to 25');
+            return false;
+          }                  
+         });
+        $('#pass2').keyup(function(){
+         var pass=$('#pass').val();
+         var cfpass=$('#pass2').val();   
+         
+         if(cfpass!=pass){
+           $('#showerrorpswd2').html('**Password do not match.');
+           return false;
+         }
+         else{
+            $('#showerrorpswd2').html('');
+            return true;
+         }
+        })
+         
+        });
+    </script>
+    
+  </body>
+</html>

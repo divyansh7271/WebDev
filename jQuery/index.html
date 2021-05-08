@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     
+     <!-- jQuery -->
+     <script src="jquery-3.5.0.min.js"></script>
+   
+     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+  <body>
+      
+    <button class="m-2">Click Me </button>
+    <div class="container-fluid">
+    <div class="mydiv  bg-info p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus obcaecati perspiciatis beatae, odio iure minus magnam deleniti, sequi ipsam animi ex esse quidem? Odit, sed! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse et facere consequuntur, dolores veniam similique quod voluptatem impedit dicta id blanditiis sapiente asperiores molestias molestiae?
+    </div>
+    </div>
+    
+    <input type="text" name="" class=" m-2">
+    <span id="focusid">Welcome</span>
+    <span id="blurid">Take Care</span>
+   
+   <script>
+      $(document).ready(function(){
+        
+        $("span").hide();  
+       
+        $("input").focus(function(){
+            $('#focusid').show().fadeOut(2000);
+       })
+        
+        $("input").blur(function(){
+            $('#blurid').show().fadeOut(2000);
+        })
+
+        $("button").click(function(){
+              $(".mydiv").toggle(500);
+          });
+      });
+
+    </script>
+    
+    
+  <!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script></body>
+</html>
